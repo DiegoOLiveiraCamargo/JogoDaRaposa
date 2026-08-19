@@ -5,13 +5,17 @@
 [ext_resource type="Texture2D" uid="uid://jys37nbh1cxe" path="res://artes/Ambiente/Decorativos/bush.png" id="3_bush"]
 [ext_resource type="Texture2D" uid="uid://cwlij7dxjg5we" path="res://artes/Ambiente/Decorativos/rock.png" id="4_rock"]
 [ext_resource type="Texture2D" uid="uid://bap4uf5b8ahgp" path="res://artes/Ambiente/Decorativos/pine.png" id="5_pine"]
-[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="6_player"]
+[ext_resource type="PackedScene" uid="uid://dm4llwt7k3v50" path="res://scenes/player.tscn" id="6_player"]
 [ext_resource type="PackedScene" path="res://scenes/placa.tscn" id="7_placa"]
 [ext_resource type="PackedScene" uid="uid://dirpvn4q6s02i" path="res://scenes/cereja.tscn" id="8_cereja"]
-[ext_resource type="PackedScene" path="res://scenes/inimigo.tscn" id="9_inimigo"]
+[ext_resource type="PackedScene" uid="uid://c526ioqdthqs3" path="res://scenes/inimigo.tscn" id="9_inimigo"]
 [ext_resource type="PackedScene" path="res://scenes/killzone.tscn" id="10_killzone"]
 [ext_resource type="PackedScene" uid="uid://cehldju8r0g0w" path="res://scenes/hud.tscn" id="11_hud"]
 [ext_resource type="PackedScene" path="res://scenes/pause_menu.tscn" id="12_pause"]
+[ext_resource type="PackedScene" uid="uid://cqkuuyog5erm" path="res://scenes/power_up.tscn" id="13_64w2a"]
+[ext_resource type="Texture2D" uid="uid://cg8kwqn8uwmfm" path="res://artes/Ambiente/Decorativos/block.png" id="14_fpun6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4qu3"]
 
 [node name="Level" type="Node2D" unique_id=1324155158]
 
@@ -22,6 +26,8 @@ layer = -1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_fundo")
 expand_mode = 1
 stretch_mode = 6
@@ -81,5 +87,22 @@ position = Vector2(640, 300)
 [node name="HUD" parent="." unique_id=1259305448 instance=ExtResource("11_hud")]
 
 [node name="PauseMenu" parent="." unique_id=782692046 instance=ExtResource("12_pause")]
+
+[node name="PowerUp" parent="." unique_id=1100920174 instance=ExtResource("13_64w2a")]
+position = Vector2(616, 88)
+
+[node name="ChãoExtra" type="Node2D" parent="." unique_id=1297362807]
+position = Vector2(68, 63)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ChãoExtra" unique_id=2110702430]
+position = Vector2(544, 42)
+
+[node name="Sprite2D" type="Sprite2D" parent="ChãoExtra/StaticBody2D" unique_id=553802564]
+position = Vector2(-44, 2)
+texture = ExtResource("14_fpun6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChãoExtra/StaticBody2D" unique_id=1794919366]
+position = Vector2(-44, 6)
+shape = SubResource("RectangleShape2D_x4qu3")
 
 [editable path="Placa"]
