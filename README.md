@@ -65,8 +65,8 @@ O `GameManager` é um autoload que mantém a pontuação e emite um sinal para a
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/DiegoOLiveiraCamargo/JogoDoRato.git
-   cd JogoDoRato
+   git clone https://github.com/DiegoOLiveiraCamargo/JogoDaRaposa.git
+   cd JogoDaRaposa
    ```
 
 2. Abra o Gerenciador de Projetos da Godot, importe o arquivo `project.godot` deste diretório e abra o projeto.
