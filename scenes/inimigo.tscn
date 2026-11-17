@@ -37,9 +37,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="Rect_corpo"]
 size = Vector2(26, 20)
 
-[sub_resource type="RectangleShape2D" id="Rect_hitbox"]
-size = Vector2(26, 20)
-
 [node name="Inimigo" type="CharacterBody2D" unique_id=1250919802]
 script = ExtResource("1_scr")
 
@@ -59,11 +56,3 @@ target_position = Vector2(20, 0)
 [node name="RayLeft" type="RayCast2D" parent="." unique_id=1239183234]
 position = Vector2(0, 4)
 target_position = Vector2(-20, 0)
-
-[node name="Hitbox" type="Area2D" parent="." unique_id=228316927]
-
-[node name="HitboxShape" type="CollisionShape2D" parent="Hitbox" unique_id=1576220370]
-position = Vector2(0, 4)
-shape = SubResource("Rect_hitbox")
-
-[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]

@@ -3,6 +3,7 @@ extends Node
 ## Emite um sinal sempre que a pontuacao muda, para o HUD se atualizar.
 
 signal score_changed(new_score: int)
+signal dash_unlocked
 
 var score: int = 0
 

@@ -29,6 +29,15 @@ func _physics_process(delta: float) -> void:
 
 	_update_animation(direction, pode_andar)
 	move_and_slide()
+
+	for collision_index in get_slide_collision_count():
+		var collision := get_slide_collision(collision_index)
+		var enemy := collision.get_collider() as CharacterBody2D
+		if enemy != null and enemy.has_method("handle_player_collision"):
+			enemy.call("handle_player_collision", self, collision.get_normal())
+			break
+
+
 func brilhar() -> void:
 	$Particulas.restart()
 func _update_animation(direction: float, pode_andar: bool) -> void:
@@ -43,4 +52,11 @@ func _update_animation(direction: float, pode_andar: bool) -> void:
 		animated_sprite.play("idle")
 		
 func ativar_dash() -> void:
+	if pode_dash:
+		return
 	pode_dash = true
+	GameManager.dash_unlocked.emit()
+
+
+func bounce_on_enemy() -> void:
+	velocity.y = JUMP_VELOCITY

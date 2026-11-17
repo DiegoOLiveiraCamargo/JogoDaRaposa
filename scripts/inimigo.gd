@@ -24,7 +24,18 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player"):
-		GameManager.reset()
-		get_tree().reload_current_scene()
+func handle_player_collision(body: Node2D, collision_normal: Vector2) -> void:
+	if not body.is_in_group("player"):
+		return
+
+	var player := body as CharacterBody2D
+	if player == null:
+		return
+
+	if collision_normal.y < -0.7:
+		player.call("bounce_on_enemy")
+		queue_free()
+		return
+
+	GameManager.reset()
+	get_tree().call_deferred("reload_current_scene")
