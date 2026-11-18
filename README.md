@@ -9,9 +9,8 @@ Jogo de plataforma 2D feito na Godot. A raposa percorre uma fase, coleta cerejas
 
 O repositório contém uma imagem de referência visual da fase:
 
-![Prévia visual da fase](artes/Exemplo.png)
+![Demostração do Game](./src/assets/demo.gif)
 
-Não foi identificado link para uma versão publicada ou demonstração jogável na web.
 
 ## Funcionalidades
 
